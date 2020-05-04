@@ -10,7 +10,12 @@ export default class Search extends React.Component {
     return (
       <div>
         <form className="" onSubmit={this.handleFormSubmit}>
-          <input className="" type="text" name="text" />
+          <input
+            className=""
+            type="text"
+            name="text"
+            placeholder="Search for movies, tv shows or people..."
+          />
           <button className="button">Search</button>
         </form>
         <div>
