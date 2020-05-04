@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%; // set base font-size to 10px to make math easier
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  // background-color: $color-blue;
+  font-family: 'Lato', sans-serif;
+  font-size: $size-m; // 16px
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

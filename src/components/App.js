@@ -2,14 +2,15 @@ import React from "react";
 import Header from "./Header";
 import Search from "./Search";
 import ItemsList from "./ItemsList";
-import "../styles/App.css";
-import { ItemsListItem } from "./ItemsListItem";
+import "../styles/styles.scss";
 
 const App = () => (
-  <div className="App">
+  <div className="">
     <Header />
-    <Search />
-    <ItemsList />
+    <div className="container">
+      <Search />
+      <ItemsList />
+    </div>
   </div>
 );
 
