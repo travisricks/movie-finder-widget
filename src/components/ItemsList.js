@@ -4,7 +4,9 @@ import ItemsListItem from "./ItemsListItem";
 
 const ItemsList = () => (
   <div>
-    <ItemsListItem />
+    <ItemsListItem trailerUrl="http://google.com" />
+    <ItemsListItem userRating="39" />
+    <ItemsListItem userRating="69" />
   </div>
 );
 

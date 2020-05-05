@@ -4,7 +4,7 @@
 .input-wrapper {
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 40px;
   border: 1px solid lighten($color-blue, 50%);
   border-radius: 4px;
   overflow: hidden;
@@ -12,15 +12,15 @@
 }
 
 .search-form__input {
-  background: url(../../Icons-search.svg) no-repeat scroll 10px 18px;
+  background: url(../../Icons-search.svg) no-repeat scroll 10px 14px;
   background-size: 2%;
   background-color: #fafbfc;
   border: none;
   padding: $size-m;
-  padding-left: 35px;
-  font-size: 2rem;
+  padding-left: 32px;
+  font-size: 1.6rem;
   width: 100%;
-  height: 50px;
+  height: 40px;
   overflow: hidden;
   color: $color-blue;
 
@@ -41,9 +41,9 @@
   top: 0;
   right: 0;
   z-index: 2;
-  padding: 0 40px;
-  height: 50px;
-  font-size: 2rem;
+  padding: 0 30px;
+  height: 40px;
+  font-size: 1.6rem;
   color: lighten($color-blue, 15%);
   background: rgb(237, 243, 245);
   background: linear-gradient(
@@ -87,9 +87,9 @@
 }
 
 .filter-button {
-  margin-right: $size-m;
+  margin-right: 1.6rem;
   padding: 5px 1.5rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: $color-blue;
   background: none;
   border-radius: 4px;
