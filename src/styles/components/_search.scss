@@ -1,0 +1,122 @@
+.search {
+  margin-bottom: $size-m;
+}
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border: 1px solid lighten($color-blue, 50%);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: $size-m;
+}
+
+.search-form__input {
+  background: url(../../Icons-search.svg) no-repeat scroll 10px 18px;
+  background-size: 2%;
+  background-color: #fafbfc;
+  border: none;
+  padding: $size-m;
+  padding-left: 35px;
+  font-size: 2rem;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  color: $color-blue;
+
+  &:placeholder-shown {
+    color: lighten($color-blue, 15%);
+  }
+
+  &:focus {
+    background-color: white;
+    border: 1px solid $color-blue;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+  }
+}
+
+.search-form__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0 40px;
+  height: 50px;
+  font-size: 2rem;
+  color: lighten($color-blue, 15%);
+  background: rgb(237, 243, 245);
+  background: linear-gradient(
+    0deg,
+    rgba(237, 243, 245, 1) 0%,
+    rgba(254, 254, 254, 1) 100%
+  );
+  border: none;
+  border-left: 1px solid lighten($color-blue, 50%);
+
+  &:hover {
+    background: rgb(250, 251, 252);
+    background: linear-gradient(
+      0deg,
+      rgba(250, 251, 252, 1) 0%,
+      rgba(254, 254, 254, 1) 100%
+    );
+    cursor: pointer;
+  }
+
+  &:active {
+    background: rgb(250, 251, 252);
+    background: rgb(250, 251, 252);
+    background: linear-gradient(
+      0deg,
+      rgba(250, 251, 252, 1) 0%,
+      rgba(250, 251, 253, 1) 95%,
+      rgba(234, 237, 240, 1) 98%,
+      rgba(191, 202, 211, 1) 100%
+    );
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:visited {
+    outline: none;
+  }
+}
+
+.filter-button {
+  margin-right: $size-m;
+  padding: 5px 1.5rem;
+  font-size: 2rem;
+  color: $color-blue;
+  background: none;
+  border-radius: 4px;
+  overflow: hidden;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+    background: lighten($color-blue, 65%);
+  }
+
+  &:active {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.filter-button-active {
+  background: $color-blue;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    background: lighten($color-blue, 65%);
+    color: $color-blue;
+  }
+}
