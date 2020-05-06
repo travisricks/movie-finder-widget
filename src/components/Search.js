@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
+  const [isClearBtn, setIsClearBtn] = useState(false);
 
   const handleSearchInputChange = (e) => {
     e.preventDefault();
     setSearchValue(e.target.value);
+    setIsClearBtn(true);
   };
 
   const resetInputField = () => {
@@ -14,6 +16,7 @@ const Search = (props) => {
     setIsMovie(false);
     setIsTv(false);
     setIsPeople(false);
+    setIsClearBtn(false);
   };
 
   const handleFormSubmit = (e) => {
@@ -71,6 +74,15 @@ const Search = (props) => {
             placeholder="Search for movies, tv shows or people..."
             onChange={handleSearchInputChange}
           />
+          <button
+            className={
+              isClearBtn ? "search-form__clear" : "search-form__clear__hidden"
+            }
+            onClick={resetInputField}
+            type="reset"
+          >
+            Clear
+          </button>
           <button className="search-form__button">Search</button>
         </div>
       </form>

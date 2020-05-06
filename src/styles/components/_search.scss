@@ -36,6 +36,39 @@
   }
 }
 
+.search-form__clear__hidden {
+  display: none;
+}
+.search-form__clear {
+  position: absolute;
+  top: 0;
+  right: 120px;
+  z-index: 2;
+  // padding: 0 30px;
+  height: 40px;
+  font-size: 1.4rem;
+  color: #447DC1;
+  background: none;
+  border: none;
+
+  &:hover {
+    color: darken(#447DC1, 20%);
+    cursor: pointer;
+  }
+
+  &:active {
+    color: darken(#447DC1, 20%);
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:visited {
+    outline: none;
+  }
+}
 .search-form__button {
   position: absolute;
   top: 0;
