@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Search from "./Search";
 import ItemsList from "./ItemsList";
+import Footer from "./Footer";
 import "../styles/styles.scss";
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
         <Search search={onSearch} filter={onFilter} />
         <ItemsList data={filteredData} />
       </div>
+      <Footer />
     </div>
   );
 };
