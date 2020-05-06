@@ -15,7 +15,6 @@ const ItemsListItemPeople = (props) => {
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
-        console.log(jsonResponse);
         setBiography(jsonResponse.biography);
       })
       .catch((error) => {

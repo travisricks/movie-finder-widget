@@ -2,14 +2,7 @@
 @import "./base/variables";
 @import "./base/base";
 @import "./base/container";
-@import "./components/app";
 @import "./components/header";
 @import "./components/search";
 @import "./components/itemListItem";
 @import "./components/footer";
-
-
-* {
-  // background-color: lightgray;
-  // border: 1px solid pink;
-}
