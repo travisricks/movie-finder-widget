@@ -5,6 +5,8 @@ I had a lot of fun building this project. And I'm looking forward to meeting wit
 
 ## [Online Demo](https://movie-widget-travis.herokuapp.com/)
 
+<a href="https://movie-widget-travis.herokuapp.com/"><img src="https://www.dropbox.com/s/loxv4gjfyta3pac/movie-widget-demo.gif?dl=0" /></a>
+
 ---
 
 ## Running the project locally
@@ -22,3 +24,16 @@ Runs the app in development mode. Open [http://localhost:3000](http://localhost:
 #### `yarn build`
 
 Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+---
+
+## Features included:
+
+- All minimum requirements for COMVEX
+- Initial load of app displays Trending items from the API
+- Added user feedback when invalid input is used for search
+- Trimmed long descriptions/biographies
+- Added lazy loading for images to improve performance
+- Created a favicon from the logo
+- Added fallback images when no image returns from DB
+- Created a new svg of the logo to fix a centering issue if the font was missing
