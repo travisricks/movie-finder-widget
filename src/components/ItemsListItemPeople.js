@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import LazyLoad from "react-lazyload";
 
 const ItemsListItemPeople = (props) => {
   // Poster URL
@@ -25,12 +26,16 @@ const ItemsListItemPeople = (props) => {
   return (
     <div className="item-wrapper">
       {props.media !== null ? (
-        <img src={media} alt={props.personName + " poster"} />
+        <LazyLoad height={270}>
+          <img src={media} alt={props.personName + " poster"} />
+        </LazyLoad>
       ) : (
-        <img
-          src="http://placehold.jp/335267/ffffff/180x270.png?text=Image%20Unavailable"
-          alt="image unavailable"
-        />
+        <LazyLoad height={270}>
+          <img
+            src="http://placehold.jp/335267/ffffff/180x270.png?text=Image%20Unavailable"
+            alt="unavailable"
+          />
+        </LazyLoad>
       )}
       <div className="item-right-column">
         <p className="item-title">{props.personName}</p>
