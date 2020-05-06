@@ -10,12 +10,53 @@ const Search = (props) => {
 
   const resetInputField = () => {
     setSearchValue("");
+    setIsAll(true);
+    setIsMovie(false);
+    setIsTv(false);
+    setIsPeople(false);
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     props.search(searchValue);
     resetInputField();
+  };
+
+  const [isAll, setIsAll] = useState(true);
+  const [isMovie, setIsMovie] = useState(false);
+  const [isTv, setIsTv] = useState(false);
+  const [isPeople, setIsPeople] = useState(false);
+
+  const changeActiveClass = (filter) => {
+    console.log("fire");
+    if (filter === "all") {
+      setIsAll(true);
+      setIsMovie(false);
+      setIsTv(false);
+      setIsPeople(false);
+    } else if (filter === "movie") {
+      setIsAll(false);
+      setIsMovie(true);
+      setIsTv(false);
+      setIsPeople(false);
+    } else if (filter === "tv") {
+      setIsAll(false);
+      setIsMovie(false);
+      setIsTv(true);
+      setIsPeople(false);
+    } else if (filter === "people") {
+      setIsAll(false);
+      setIsMovie(false);
+      setIsTv(false);
+      setIsPeople(true);
+    }
+    return;
+  };
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    changeActiveClass(e.target.value);
+    props.filter(e.target.value);
   };
 
   return (
@@ -34,10 +75,42 @@ const Search = (props) => {
         </div>
       </form>
       <div>
-        <button className="filter-button filter-button-active">All</button>
-        <button className="filter-button">Movies</button>
-        <button className="filter-button">TV Shows</button>
-        <button className="filter-button">People</button>
+        <button
+          className={
+            isAll ? "filter-button-active filter-button" : "filter-button"
+          }
+          onClick={handleFilter}
+          value="all"
+        >
+          All
+        </button>
+        <button
+          className={
+            isMovie ? "filter-button-active filter-button" : "filter-button"
+          }
+          onClick={handleFilter}
+          value="movie"
+        >
+          Movies
+        </button>
+        <button
+          className={
+            isTv ? "filter-button-active filter-button" : "filter-button"
+          }
+          onClick={handleFilter}
+          value="tv"
+        >
+          TV Shows
+        </button>
+        <button
+          className={
+            isPeople ? "filter-button-active filter-button" : "filter-button"
+          }
+          onClick={handleFilter}
+          value="people"
+        >
+          People
+        </button>
       </div>
     </div>
   );

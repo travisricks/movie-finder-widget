@@ -7,6 +7,7 @@ import "../styles/styles.scss";
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   // Load app with trending content
   useEffect(() => {
@@ -16,6 +17,7 @@ const App = () => {
       .then((response) => response.json())
       .then((jsonResponse) => {
         setData(jsonResponse.results);
+        setFilteredData(jsonResponse.results);
       })
       .catch((error) => {
         console.log("initial fetch error: ", error);
@@ -30,18 +32,32 @@ const App = () => {
       .then((response) => response.json())
       .then((jsonResponse) => {
         setData(jsonResponse.results);
+        setFilteredData(jsonResponse.results);
       })
       .catch((error) => {
-        console.log("initial fetch error: ", error);
+        console.log("search fetch error: ", error);
       });
+  };
+
+  const onFilter = (filter) => {
+    if (filter === "all") {
+      setFilteredData([...data]);
+    } else if (filter === "movie") {
+      setFilteredData(data.filter((item) => item.media_type === "movie"));
+    } else if (filter === "tv") {
+      setFilteredData(data.filter((item) => item.media_type === "tv"));
+    } else if (filter === "people") {
+      setFilteredData(data.filter((item) => item.known_for_department));
+    }
+    return;
   };
 
   return (
     <div className="">
       <Header />
       <div className="container">
-        <Search search={onSearch} />
-        <ItemsList data={data} />
+        <Search search={onSearch} filter={onFilter} />
+        <ItemsList data={filteredData} />
       </div>
     </div>
   );

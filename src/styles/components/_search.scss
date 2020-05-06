@@ -111,7 +111,7 @@
 }
 
 .filter-button-active {
-  background: $color-blue;
+  background: darken($color-blue, 10%);
   color: white;
 
   &:hover {
