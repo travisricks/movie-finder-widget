@@ -3,11 +3,13 @@ import React, { useState } from "react";
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
   const [isClearBtn, setIsClearBtn] = useState(false);
+  const [errorValue, setErrorValue] = useState(false);
 
   const handleSearchInputChange = (e) => {
     e.preventDefault();
     setSearchValue(e.target.value);
     setIsClearBtn(true);
+    setErrorValue(false);
   };
 
   const resetInputField = () => {
@@ -21,6 +23,10 @@ const Search = (props) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    if (!searchValue) {
+      setErrorValue(true);
+      return;
+    }
     props.search(searchValue);
     resetInputField();
   };
@@ -31,7 +37,6 @@ const Search = (props) => {
   const [isPeople, setIsPeople] = useState(false);
 
   const changeActiveClass = (filter) => {
-    console.log("fire");
     if (filter === "all") {
       setIsAll(true);
       setIsMovie(false);
@@ -86,6 +91,9 @@ const Search = (props) => {
           <button className="search-form__button">Search</button>
         </div>
       </form>
+      <div className="error-message">
+        {errorValue && <p>Please enter valid search text above.</p>}
+      </div>
       <div>
         <button
           className={
