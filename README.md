@@ -5,7 +5,7 @@ I had a lot of fun building this project. And I'm looking forward to meeting wit
 
 ## [Online Demo](https://movie-widget-travis.herokuapp.com/)
 
-<a href="https://movie-widget-travis.herokuapp.com/"><img src="https://www.dropbox.com/s/loxv4gjfyta3pac/movie-widget-demo.gif?dl=0" /></a>
+<a href="https://movie-widget-travis.herokuapp.com/"><img src="https://user-images.githubusercontent.com/289841/81184267-2dff1600-8feb-11ea-80dd-31cdd370480d.gif" /></a>
 
 ---
 
