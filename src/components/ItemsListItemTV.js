@@ -35,7 +35,9 @@ const ItemsListItemTV = (props) => {
         <div className="item-rating">
           <p>
             User Rating:{" "}
-            <span className="item-rating-value">{props.userRating}%</span>
+            <span className="item-rating-value">
+              {props.userRating === 0 ? "Not rated" : `${props.userRating}%`}
+            </span>
           </p>
           <div className="item-rating-bar-bg">
             <div

@@ -26,6 +26,10 @@
     position: relative;
   }
 
+  .item-right-column {
+    width: 100%;
+  }
+
   .item-title {
     margin: 0;
     font-weight: 700;
@@ -129,7 +133,7 @@
     background-color: lighten($color-blue, 60%);
     font-size: 1.6rem;
     color: $color-blue;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border: none;
     border-radius: 2rem;
     outline: none;

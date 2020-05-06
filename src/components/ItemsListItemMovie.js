@@ -45,7 +45,7 @@ const ItemsListItemMovie = (props) => {
           alt="unavailable"
         />
       )}
-      <div>
+      <div className="item-right-column">
         <p className="item-title">
           {props.title} <span>({props.releaseDate.substring(0, 4)})</span>
         </p>
@@ -57,7 +57,9 @@ const ItemsListItemMovie = (props) => {
         <div className="item-rating">
           <p>
             User Rating:{" "}
-            <span className="item-rating-value">{props.userRating}%</span>
+            <span className="item-rating-value">
+              {props.userRating === 0 ? "Not rated" : `${props.userRating}%`}
+            </span>
           </p>
           <div className="item-rating-bar-bg">
             <div
