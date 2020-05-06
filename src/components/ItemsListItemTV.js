@@ -13,6 +13,28 @@ const ItemsListItemTV = (props) => {
     ratingClass = "item-rating-high";
   }
 
+  // Fetch TV Trailer URL
+  const [trailerUrl, setTrailerUrl] = useState("");
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/tv/${props.id}/videos?api_key=c5d29e3705cb514252dcac76c8cba1e2&language=en-US`
+    )
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        setTrailerUrl(
+          `https://www.youtube.com/watch?v=${jsonResponse.results[0].key}`
+        );
+      })
+      .catch((error) => {
+        console.log("trailer fetch error ", error);
+      });
+  }, []);
+
+  // TV Trailer click handler
+  const onClickTrailer = () => {
+    window.open(trailerUrl, "_blank");
+  };
+
   return (
     <div className="item-wrapper">
       {props.media !== null ? (
@@ -23,7 +45,7 @@ const ItemsListItemTV = (props) => {
           alt="unavailable"
         />
       )}
-      <div>
+      <div className="item-right-column">
         <p className="item-title">
           {props.title} <span>({props.airDate.substring(0, 4)})</span>
         </p>
@@ -48,6 +70,16 @@ const ItemsListItemTV = (props) => {
             ></div>
           </div>
         </div>
+        {trailerUrl && (
+          <button className="item-play-btn" onClick={onClickTrailer}>
+            &#9654; Play Trailer
+          </button>
+        )}
+        {!trailerUrl && (
+          <button className="item-play-btn-disabled">
+            &#9654; Trailer Unavailable
+          </button>
+        )}
       </div>
     </div>
   );
@@ -55,8 +87,8 @@ const ItemsListItemTV = (props) => {
 
 ItemsListItemTV.defaultProps = {
   media: "http://placekitten.com/300/450",
-  title: "Placeholder Movie Title",
-  type: "movie",
+  title: "Placeholder TV Title",
+  type: "tv",
   airDate: "1900/08/04",
   description: "",
   userRating: "70",

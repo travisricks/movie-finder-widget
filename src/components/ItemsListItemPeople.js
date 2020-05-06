@@ -32,7 +32,7 @@ const ItemsListItemPeople = (props) => {
           alt="image unavailable"
         />
       )}
-      <div>
+      <div className="item-right-column">
         <p className="item-title">{props.personName}</p>
         <span className="item-type">People</span>{" "}
         <span className="item-date">
