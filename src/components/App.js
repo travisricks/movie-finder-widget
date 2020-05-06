@@ -22,11 +22,25 @@ const App = () => {
       });
   }, []);
 
+  // handle search
+  const onSearch = (searchValue) => {
+    fetch(
+      `https://api.themoviedb.org/3/search/multi?api_key=c5d29e3705cb514252dcac76c8cba1e2&language=en-US&query=${searchValue}&page=1&include_adult=false`
+    )
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        setData(jsonResponse.results);
+      })
+      .catch((error) => {
+        console.log("initial fetch error: ", error);
+      });
+  };
+
   return (
     <div className="">
       <Header />
       <div className="container">
-        <Search />
+        <Search search={onSearch} />
         <ItemsList data={data} />
       </div>
     </div>

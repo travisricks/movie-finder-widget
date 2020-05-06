@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 
-const ItemsListItem = (props) => {
+const ItemsListItemMovie = (props) => {
   // Poster URL
   const media = `https://image.tmdb.org/t/p/w185${props.media}`;
 
@@ -16,20 +16,18 @@ const ItemsListItem = (props) => {
   // Fetch Movie Trailer URL
   const [trailerUrl, setTrailerUrl] = useState("");
   useEffect(() => {
-    if (props.type === "movie") {
-      fetch(
-        `https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=c5d29e3705cb514252dcac76c8cba1e2&language=en-US`
-      )
-        .then((response) => response.json())
-        .then((jsonResponse) => {
-          setTrailerUrl(
-            `https://www.youtube.com/watch?v=${jsonResponse.results[0].key}`
-          );
-        })
-        .catch((error) => {
-          console.log("trailer fetch error ", error);
-        });
-    }
+    fetch(
+      `https://api.themoviedb.org/3/movie/${props.id}/videos?api_key=c5d29e3705cb514252dcac76c8cba1e2&language=en-US`
+    )
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        setTrailerUrl(
+          `https://www.youtube.com/watch?v=${jsonResponse.results[0].key}`
+        );
+      })
+      .catch((error) => {
+        console.log("trailer fetch error ", error);
+      });
   }, []);
 
   // Movie Trailer click handler
@@ -39,24 +37,21 @@ const ItemsListItem = (props) => {
 
   return (
     <div className="item-wrapper">
-      <img src={media} alt={props.title + " poster"} />
+      {props.media !== null ? (
+        <img src={media} alt={props.title + " poster"} />
+      ) : (
+        <img
+          src="http://placehold.jp/335267/ffffff/180x270.png?text=Image%20Unavailable"
+          alt="unavailable"
+        />
+      )}
       <div>
         <p className="item-title">
-          {props.title}{" "}
-          <span>
-            {props.type !== "people" && props.type === "movie"
-              ? props.releaseDate.substring(0, 4)
-              : props.airDate.substring(0, 4)}
-            {props.type === "people" && `Gender: ${props.gender}`}
-          </span>
+          {props.title} <span>({props.releaseDate.substring(0, 4)})</span>
         </p>
-        <span className="item-type">
-          {props.type === "tv" ? "TV Show" : props.type}
-        </span>{" "}
+        <span className="item-type">{props.type}</span>{" "}
         <span className="item-date">
-          {props.type !== "people" && props.type === "movie"
-            ? `Release date: ${props.releaseDate.replace(/-/g, "/")}`
-            : `First air date: ${props.airDate.replace(/-/g, "/")}`}
+          {`Release date: ${props.releaseDate.replace(/-/g, "/")}`}
         </span>
         <p>{props.description}</p>
         <div className="item-rating">
@@ -73,12 +68,12 @@ const ItemsListItem = (props) => {
             ></div>
           </div>
         </div>
-        {props.type === "movie" && trailerUrl && (
+        {trailerUrl && (
           <button className="item-play-btn" onClick={onClickTrailer}>
             &#9654; Play Trailer
           </button>
         )}
-        {props.type === "movie" && !trailerUrl && (
+        {!trailerUrl && (
           <button className="item-play-btn-disabled">
             &#9654; Trailer Unavailable
           </button>
@@ -88,7 +83,7 @@ const ItemsListItem = (props) => {
   );
 };
 
-ItemsListItem.defaultProps = {
+ItemsListItemMovie.defaultProps = {
   media: "http://placekitten.com/300/450",
   title: "Placeholder Movie Title",
   type: "movie",
@@ -98,4 +93,4 @@ ItemsListItem.defaultProps = {
   userRating: "70",
 };
 
-export default ItemsListItem;
+export default ItemsListItemMovie;
