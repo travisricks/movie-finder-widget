@@ -4,7 +4,9 @@ import logo from "../logo-outlines.svg";
 const Header = (props) => (
   <header>
     <div className="container">
-      <img src={logo} alt={`${props.title} logo`} />
+      <a href="/">
+        <img src={logo} alt={`${props.title} logo`} />
+      </a>
     </div>
   </header>
 );
