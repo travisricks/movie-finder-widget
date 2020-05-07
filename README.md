@@ -29,11 +29,17 @@ Builds the app for production to the `build` folder. It correctly bundles React 
 
 ## Features included:
 
-- All minimum requirements for COMVEX
-- Initial load of app displays Trending items from the API
-- Added user feedback when invalid input is used for search
-- Trimmed long descriptions/biographies
-- Added lazy loading for images to improve performance
-- Created a favicon from the logo
-- Added fallback images when no image returns from DB
-- Created a new svg of the logo to fix a centering issue if the font was missing
+- All minimum requirements for COMVEX completed.
+- Initial load of app displays 'trending items' from the API so the app has content on page load.
+- Added user feedback when invalid input is used for search to help users use the app.
+- Trimmed long descriptions/biographies to keep the design clean
+- Added lazy loading for images to improve performance.
+- Created a favicon from the logo to be consistent with the site's branding.
+- Added fallback images when no image returns from DB to keep the design clean.
+- Created a new svg of the logo to fix a centering issue if the font was missing to ensure logo displays correctly on all machines.
+
+## Ideas for next sprint:
+
+- Add styling for responsive sizing
+- Add tests
+- Add support for multiple images per item

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../movie-db-logo.svg";
+import logo from "../assets/movie-db-logo.svg";
 
 const Footer = () => (
   <footer>
